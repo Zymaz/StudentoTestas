@@ -22,11 +22,8 @@
 <script>
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    firebase.auth().languageCode = 'en';
-    provider.setCustomParameters({
-        'login_hint': 'evaldas@taroza.lt'
-    });
-    function click() {
+    firebase.auth().languageCode = 'lt';
+        function click() {
         firebase.auth().signInWithPopup(provider).then(function(result) {
             console.log("signin");
             // This gives you a Google Access Token. You can use it to access the Google API.
