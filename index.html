@@ -19,6 +19,7 @@
 </head>
 <body>
 <a href="javascript:click()">Login with XYZ</a>
+    <a href="javascript:sendEMail()">send EMail</a>
 <script>
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
@@ -43,6 +44,17 @@
             console.log(errorMessage);
         });
     }
+    function sendEMail() {
+        var user = firebase.auth().currentUser;
+
+user.sendEmailVerification().then(function() {
+  alert('Email sent');
+}).catch(function(error) {
+  // An error happened.
+});
+        
+    }
+    
 </script>
 </body>
 </html>
